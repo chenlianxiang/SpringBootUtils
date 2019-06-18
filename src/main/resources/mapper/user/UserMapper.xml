@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heheda.utils.project.user.mapper.UserMapper">
+
+    <!--<insert id="istUser">-->
+        <!--insert into user(-->
+        <!--<if test="pName!='' and pName!=null"> pName,</if>-->
+<!--&#45;&#45;         <if test="pSex!='' and pSex!=null"> pSex,</if>-->
+        <!--<if test="pAge!='' and pAge!=null"> pAge,</if>-->
+        <!--<if test="pAdress!='' and pAdress!=null"> pAdress,</if>-->
+        <!--create_time-->
+        <!--)-->
+        <!--values-->
+        <!--<foreach collection="list" item="item" index="index" separator=",">-->
+           <!--(-->
+            <!--<if test="pName!='' and pName!=null"> #{item.pName},</if>-->
+<!--&#45;&#45;             <if test="pSex!='' and pSex!=null"> #{item.pSex},</if>-->
+            <!--<if test="pAge!='' and pAge!=null"> #{item.pAge},</if>-->
+            <!--<if test="pAdress!='' and pAdress!=null"> #{item.pAdress},</if>-->
+            <!--sysdate()-->
+            <!--)-->
+        <!--</foreach>-->
+    <!--</insert>-->
+
+    <insert id="istUser">
+        insert into user(
+        pName,
+       pAge,
+      pAdress,
+        create_time
+        )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+          #{item.pName},
+          #{item.pAge},
+           #{item.pAdress},
+            sysdate()
+            )
+        </foreach>
+    </insert>
+    
+    <select id="getUserList" resultType="com.heheda.utils.project.user.entity.UserBean">
+        select * from user
+    </select>
+</mapper>

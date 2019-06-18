@@ -1,6 +1,7 @@
 package com.heheda.utils.common.support;
 
-import com.ruoyi.common.utils.StringUtils;
+
+import com.heheda.utils.common.utils.StringUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
